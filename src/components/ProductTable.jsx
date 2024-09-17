@@ -43,15 +43,15 @@ const ProductTable = () => {
                 </Table.Row>
                 <Table.Row>
                     <Table.Column>Football</Table.Column>
-                    <Table.Column>$49.99</Table.Column>
+                    <Table.Column>$99.99</Table.Column>
                 </Table.Row>
                 <Table.Row>
                     <Table.Column>Baseball</Table.Column>
-                    <Table.Column>$9.99</Table.Column>
+                    <Table.Column>$99.99</Table.Column>
                 </Table.Row>
                 <Table.Row>
                     <Table.Column>Basketball</Table.Column>
-                    <Table.Column>$29.99</Table.Column>
+                    <Table.Column>$99.99</Table.Column>
                 </Table.Row>
             </Table.TBody>
         </Table.Tablecontainer>
