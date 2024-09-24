@@ -1,7 +1,13 @@
 import React from 'react'
 import Table from './Table'
+import ProductItem from './products/ProductItem'
+import ProductCategoryHeader from './products/ProductCategoryHeader'
 
-const ProductTable = () => {
+const ProductTable = ({headers, products}) => {
+
+    const sportingGoods = products.filter((product) => product.type == 1);
+    const electronics = products.filter((product) => product.type == 2);
+
   return(
     <div>
         <Table.Tablecontainer>
@@ -13,46 +19,23 @@ const ProductTable = () => {
             </Table.THead>
 
             <Table.TBody>
-                <Table.Row>
-                    <Table.ColumnHeader colspan="2">Sporting Goods</Table.ColumnHeader>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Column>Tennis</Table.Column>
-                    <Table.Column>$49.99</Table.Column>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Column>Badminton</Table.Column>
-                    <Table.Column>$9.99</Table.Column>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Column>Basketball</Table.Column>
-                    <Table.Column>$29.99</Table.Column>
-                </Table.Row>
-            </Table.TBody>
+                <ProductCategoryHeader text={headers[0]}/>
 
-            <Table.THead>
-                <Table.Row>
-                    <Table.ColumnHeader>Name</Table.ColumnHeader>
-                    <Table.ColumnHeader>Price</Table.ColumnHeader>
-                </Table.Row>
-            </Table.THead>
+                {sportingGoods.map((sportingGood) => (
+                    <ProductItem 
+                        key = {`${sportingGood.type}``${sportingGood.id}`}
+                        name = {sportingGood.name}
+                        price = {sportingGood.price}
+                    />
+                ))}
 
-            <Table.TBody>
-                <Table.Row>
-                    <Table.ColumnHeader colspan="2">Sporting Goods</Table.ColumnHeader>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Column>Football</Table.Column>
-                    <Table.Column>$99.99</Table.Column>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Column>Baseball</Table.Column>
-                    <Table.Column>$99.99</Table.Column>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Column>Basketball</Table.Column>
-                    <Table.Column>$99.99</Table.Column>
-                </Table.Row>
+                {electronics.map((sportingGood) => (
+                    <ProductItem 
+                        key = {`${sportingGood.type}``${sportingGood.id}`}
+                        name = {sportingGood.name}
+                        price = {sportingGood.price}
+                    />
+                ))}
             </Table.TBody>
         </Table.Tablecontainer>
     </div>
