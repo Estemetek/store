@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import FilterProductTable from './components/FilterProductTable';
 import ProductTable from './components/ProductTable';
@@ -18,10 +19,16 @@ const products = [
 const headers = ["Sporting Goods", "Electronics"]
 
 function App() {
+  const [query, setQuery] = useState("");
+  const filteredProducts = products.filter((product) => 
+    product.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+  );
+
+
   return(
     <FilterProductTable>
-      <SearchBar /> 
-      <ProductTable headers={headers} products={products}/>
+      <SearchBar query={query} setQuery={setQuery}/> 
+      <ProductTable headers={headers} products={filteredProducts}/>
     </FilterProductTable>
   );
 }
